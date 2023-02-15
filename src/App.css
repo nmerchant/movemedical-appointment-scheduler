@@ -4,3 +4,31 @@
     padding: 2rem;
     text-align: center;
 }
+
+.appointment-list {
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    gap: 10px;
+}
+
+a.appointment {
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.new-appointment-button {
+    margin: 1rem;
+}
+
+.new-appointment-form form label {
+    text-align: left;
+    margin-right: 10px;
+}
+
+.new-appointment-form form input,
+.new-appointment-form form select {
+    margin-left: 5px;
+}

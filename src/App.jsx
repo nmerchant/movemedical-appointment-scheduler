@@ -1,27 +1,26 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import NewAppointmentForm from './components/NewAppointmentForm';
+import AppointmentList from './components/AppointmentList';
 
 function App() {
     const [appointments, setAppointments] = useState([]);
 
-    const createNewAppointment = () => {
+
+    const createNewAppointment = (location, description) => {
         setAppointments([...appointments, {
-            location: 'San Diego',
+            location,
             date: new Date(),
-            description: 'This is a test'
+            description
         }])
     }
 
     return (
         <div className="App">
             <h1>Movemedical Appointment Scheduler</h1>
-            <button onClick={createNewAppointment}>Create New Appointment</button>
-            <div className="appointment-list">
-                {appointments?.map((appointment, key) => 
-                    <a className="appointment" key={key}>{appointment?.location}</a>
-                )}
-            </div>
+            <NewAppointmentForm onCreateNewAppointment={createNewAppointment} />
+            <AppointmentList appointments={appointments} />
         </div>
     );
 }
