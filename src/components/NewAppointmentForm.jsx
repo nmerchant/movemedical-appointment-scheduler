@@ -7,7 +7,7 @@ export default function NewAppointmentForm({ onCreateNewAppointment }) {
     
     const [location, setLocation] = useState(locations[0]);
     const [description, setDescription] = useState('');
-    const [date, setDate] = useState();
+    const [date, setDate] = useState(new Date().setHours(0,0,0,0));
 
     return (
         <>

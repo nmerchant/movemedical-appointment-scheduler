@@ -21,31 +21,35 @@ export default function DateTimeInput({ date: datetime, setDate: setDateTime }) 
     const dateInputValue = `${dateParts[2]}-${dateParts[0]}-${dateParts[1]}`;
 
     const timeParts = new Intl.DateTimeFormat('en-US', {
-        hour: '2-digit',
+        hour: 'numeric',
         minute: '2-digit'
     }).format(datetime);
-
+    
     const [date, setDate] = useState(dateInputValue);
     const [time, setTime] = useState(timeParts);
 
     useEffect(() => {
+        console.log(date + ' ' + time);
         setDateTime(new Date(date + ' ' + time));
     }, [date, time]);
 
+    console.log('TIME: ', time);
+
     return (
         <>
-            <input className="date" type='date' value={date} onChange={e => { console.log(e.target.value)}}></input>
+            <input className="date" type='date' value={date} onChange={e => { setDate(e.target.value) }}></input>
             <select className="time" value={time} onChange={e => { setTime(e.target.value) }}>
                 {
 
-                    times.map(time => {
-                        const [hour, minute] = time;
+                    times.map(t => {
+                        const [hour, minute] = t;
                         const date = new Date();
                         date.setHours(hour);
                         date.setMinutes(minute);
                         const fTime = timeFormatter.format(date);
+                        console.log(fTime, time, fTime === time);
 
-                        return <option key={fTime} value={fTime}>{fTime}</option>
+                        return <option key={fTime} value={fTime} selected={fTime === time}>{fTime}</option>
                     })
                 }
             </select>
