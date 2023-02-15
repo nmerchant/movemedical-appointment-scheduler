@@ -25,8 +25,6 @@ a:hover {
 
 body {
     margin: 0;
-    display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
 }
@@ -54,6 +52,17 @@ button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* select {
+    font-size: 0.8rem;
+    min-height: 30px;
+}
+input {
+    min-height: 25px;
+}
+select, input {
+    margin-bottom: 5px;
+} */
 
 @media (prefers-color-scheme: light) {
     :root {

@@ -1,17 +1,24 @@
 import { useState } from 'react';
+import DateTimeInput from './DateTimeInput';
+import LocationSelect from './LocationSelect';
 
-export default function Appointment({ data: appointment, onDeleteAppointment }) {
+export default function Appointment({ data: appointment, onDeleteAppointment, onEditAppointment }) {
     const [editing, setEditing] = useState(false);
     const [deleting, setDeleting] = useState(false);
     
     const [location, setLocation] = useState(appointment.location);
     const [description, setDescription] = useState(appointment.description);
+    const [date, setDate] = useState(appointment.date);
 
     const dateFormat = new Intl.DateTimeFormat('en-us', { 
-        weekday: 'long', 
+        weekday: 'short', 
         year: 'numeric', 
-        month: 'long', 
+        month: 'short', 
         day: 'numeric' 
+    });
+    const timeFormat = new Intl.DateTimeFormat('en-US', {
+        hour: '2-digit',
+        minute: '2-digit'
     });
 
     const onConfirmDelete = (appointment) => {
@@ -20,8 +27,8 @@ export default function Appointment({ data: appointment, onDeleteAppointment }) 
     };
 
     const onConfirmEdit = () => {
-        setDeleting(false);
-        // onEditAppointment(appointment, );
+        setEditing(false);
+        onEditAppointment(appointment, location, description, date);
     };
 
     const onCancelDelete = () => {
@@ -30,6 +37,9 @@ export default function Appointment({ data: appointment, onDeleteAppointment }) 
 
     const onCancelEdit = () => {
         setEditing(false);
+        setLocation(appointment.location);
+        setDescription(appointment.description);
+        setDate(appointment.date);
     }
 
     const onDelete = () => {
@@ -42,12 +52,13 @@ export default function Appointment({ data: appointment, onDeleteAppointment }) 
         setDeleting(false);
     }
 
+
     return (
         <div className="appointment">
             <div className="appointment-details">
-                { editing ? <input value={location}></input> : <div>{appointment?.location}</div>}
-                <div>{appointment?.description}</div>
-                <div>{dateFormat.format(appointment?.date)}</div>
+                { editing ? <div><DateTimeInput date={date} setDate={setDate} /></div> : <div>{dateFormat.format(appointment?.date) + ' - ' + timeFormat.format(appointment?.date) || '-'}</div>}
+                { editing ? <LocationSelect location={location} setLocation={setLocation} /> : <div>{appointment?.location}</div>}
+                { editing ? <div><input value={description} onChange={e => { setDescription(e.target.value)}}></input></div> : <div>{appointment?.description || '-'}</div>}
             </div>
             <div className="appointment-controls">
                 {deleting ? 
