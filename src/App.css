@@ -6,21 +6,50 @@
 }
 
 .appointment-list {
-    display: flex;
-    justify-content: center;
     min-height: 50px;
-    gap: 10px;
 }
 
-a.appointment {
+.appointment {
     border: 1px solid black;
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .new-appointment-button {
     margin: 1rem;
+}
+
+.delete-appointment, 
+.edit-appointment {
+    border: 1px solid black;
+    padding: 0 10px;
+    border-radius: 5px;
+    height: 25px;
+}
+
+.delete-appointment, 
+.edit-appointment,
+.delete-controls {
+    margin-bottom: 5px;
+}
+
+.delete-controls {
+    display: flex;
+}
+
+.delete-controls div {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    text-align: center;
 }
 
 .new-appointment-form form label {
