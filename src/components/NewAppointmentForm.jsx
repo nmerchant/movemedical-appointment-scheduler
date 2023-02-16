@@ -15,7 +15,7 @@ export default function NewAppointmentForm({ onCreateNewAppointment }) {
                 <form>
                     <DateTimeInput date={date} setDate={setDate} />
                     <LocationSelect location={location} setLocation={setLocation} />
-                    <div>
+                    <div className="description">
                         <label>
                             Description:
                             <input type="text" name="description" value={description} onChange={e => setDescription(e.target.value)}></input>

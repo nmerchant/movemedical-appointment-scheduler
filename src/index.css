@@ -34,6 +34,10 @@ h1 {
     line-height: 1.1;
 }
 
+hr {
+    margin: 10px auto;
+}
+
 button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -51,6 +55,9 @@ button:hover {
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+input, select {
+    font-family: inherit;
 }
 
 /* select {

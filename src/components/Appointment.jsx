@@ -58,7 +58,7 @@ export default function Appointment({ data: appointment, onDeleteAppointment, on
             <div className="appointment-details">
                 { editing ? <div><DateTimeInput date={date} setDate={setDate} /></div> : <div>{dateFormat.format(appointment?.date) + ' - ' + timeFormat.format(appointment?.date) || '-'}</div>}
                 { editing ? <LocationSelect location={location} setLocation={setLocation} /> : <div>{appointment?.location}</div>}
-                { editing ? <div><input value={description} onChange={e => { setDescription(e.target.value)}}></input></div> : <div>{appointment?.description || '-'}</div>}
+                { editing ? <div className="description"><input value={description} onChange={e => { setDescription(e.target.value)}}></input></div> : <div>{appointment?.description || '-'}</div>}
             </div>
             <div className="appointment-controls">
                 {deleting ? 
@@ -73,7 +73,7 @@ export default function Appointment({ data: appointment, onDeleteAppointment, on
 
                 {editing ? 
                 (
-                <div className="delete-controls">
+                <div className="edit-controls">
                     <div className="confirm-edit" onClick={onConfirmEdit}>✓</div>
                     <div className="cancel-edit" onClick={onCancelEdit}>X</div>
                 </div>

@@ -43,6 +43,7 @@ function App() {
         <div className="App">
             <h1>Movemedical Appointment Scheduler</h1>
             <NewAppointmentForm onCreateNewAppointment={createNewAppointment} />
+            <hr />
             <AppointmentList appointments={appointments} onDeleteAppointment={onDeleteAppointment} onEditAppointment={onEditAppointment} />
         </div>
     );
