@@ -4,7 +4,7 @@ This is a technical assessment of front-end development skills for Movemedical.
 
 A deployed version of this code can be viewed here: https://nmerchant.github.io/movemedical-appointment-scheduler/
 
-### Installation & Running
+## Installation & Running
 
 Install dependencies:
 ```
@@ -21,7 +21,7 @@ Deploy to GH pages:
 npm run deploy
 ```
 
-### Requirements
+## Requirements
 
 The requirements for this project were:
 
