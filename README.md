@@ -1,5 +1,4 @@
-# Movemedical Technical Assessment
-## Appointment Scheduler
+# Movemedical Technical Assessment - Appointment Scheduler
 
 This is a technical assessment of front-end development skills for Movemedical.
 
