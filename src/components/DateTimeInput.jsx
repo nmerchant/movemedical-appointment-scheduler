@@ -29,11 +29,9 @@ export default function DateTimeInput({ date: datetime, setDate: setDateTime }) 
     const [time, setTime] = useState(timeParts);
 
     useEffect(() => {
-        console.log(date + ' ' + time);
         setDateTime(new Date(date + ' ' + time));
     }, [date, time]);
 
-    console.log('TIME: ', time);
 
     return (
         <>
@@ -47,7 +45,6 @@ export default function DateTimeInput({ date: datetime, setDate: setDateTime }) 
                         date.setHours(hour);
                         date.setMinutes(minute);
                         const fTime = timeFormatter.format(date);
-                        console.log(fTime, time, fTime === time);
 
                         return <option key={fTime} value={fTime} selected={fTime === time}>{fTime}</option>
                     })
